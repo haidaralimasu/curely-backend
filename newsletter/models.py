@@ -5,7 +5,7 @@ now = timezone.now()
 
 
 class NewsLetter(models.Model):
-    email = models.EmailField(max_length=100,unique=True)
+    email = models.EmailField(max_length=100, unique=True)
     is_subscribed = models.BooleanField(default=True)
     created_at = models.DateTimeField(default=now)
     updated_at = models.DateTimeField(default=now)

@@ -3,6 +3,7 @@ from django.utils import timezone
 
 now = timezone.now()
 
+
 class Testimonial(models.Model):
     user_name = models.CharField(max_length=50)
     image = models.ImageField(upload_to="photos/testimonials/")

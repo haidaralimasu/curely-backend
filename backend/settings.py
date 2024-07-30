@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     "rest_framework_simplejwt",
     # User defined
     "newsletter",
-    'blog',
-    'testimonials'
+    "blog",
+    "testimonials",
 ]
 
 MIDDLEWARE = [

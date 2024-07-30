@@ -5,6 +5,7 @@ from django.template.defaultfilters import slugify
 
 now = timezone.now()
 
+
 class Category(models.Model):
     name = models.CharField(max_length=50, default="")
 

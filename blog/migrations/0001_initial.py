@@ -9,29 +9,52 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Category',
+            name="Category",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(default='', max_length=50)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(default="", max_length=50)),
             ],
         ),
         migrations.CreateModel(
-            name='BlogPost',
+            name="BlogPost",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=50)),
-                ('slug', models.SlugField()),
-                ('thumbnail', models.ImageField(upload_to='photos/%Y/%m/%d/')),
-                ('excerpt', models.CharField(max_length=150)),
-                ('content', models.TextField()),
-                ('featured', models.BooleanField(default=False)),
-                ('date_created', models.DateTimeField(blank=True, default=datetime.datetime.now)),
-                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='blog.category')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=50)),
+                ("slug", models.SlugField()),
+                ("thumbnail", models.ImageField(upload_to="photos/%Y/%m/%d/")),
+                ("excerpt", models.CharField(max_length=150)),
+                ("content", models.TextField()),
+                ("featured", models.BooleanField(default=False)),
+                (
+                    "date_created",
+                    models.DateTimeField(blank=True, default=datetime.datetime.now),
+                ),
+                (
+                    "category",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="blog.category"
+                    ),
+                ),
             ],
         ),
     ]

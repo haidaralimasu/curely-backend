@@ -9,5 +9,3 @@ class TestimonialListView(ListAPIView):
     serializer_class = TestimonialSerializer
     lookup_field = "user_name"
     permission_classes = (permissions.AllowAny,)
-
-
