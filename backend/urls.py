@@ -18,7 +18,8 @@ urlpatterns = [
     ),  # Favicon
     path("api/v1/admin/", admin.site.urls),  # Admin site
     path("api/v1/newsletter/", include("newsletter.urls")),  # Newsletter urls
+    path("api/v1/blog/", include("blog.urls")), # Blog urls
+    path("api/v1/testimonials/", include("testimonials.urls")), # Testimonials urls
 ] + static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
 )  # Media urls
-

@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     "rest_framework_simplejwt",
     # User defined
     "newsletter",
+    'blog',
+    'testimonials'
 ]
 
 MIDDLEWARE = [
@@ -71,15 +73,27 @@ TEMPLATES = [
 WSGI_APPLICATION = "backend.wsgi.application"
 
 
-# Database
-# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+# # Database
+# # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+if DEBUG:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
     }
-}
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": str(os.getenv("DJANGO_DB_NAME")),
+            "USER": str(os.getenv("DJANGO_DB_USER")),
+            "PASSWORD": str(os.getenv("DJANGO_DB_PASSWORD")),
+            "HOST": str(os.getenv("DJANGO_DB_HOST")),
+            "PORT": str(os.getenv("DJANGO_DB_PORT")),
+        }
+    }
 
 
 # Password validation
